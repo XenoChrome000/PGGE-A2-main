@@ -821,6 +821,7 @@ GameObject:
   - component: {fileID: 2028064569042939155}
   - component: {fileID: 2028064569042939153}
   - component: {fileID: 2028064569042939167}
+  - component: {fileID: -5910561900794309330}
   m_Layer: 8
   m_Name: SciFiPlayer_Networked
   m_TagString: Player
@@ -906,11 +907,12 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  observableSearch: 2
+  observableSearch: 0
   Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 2028064569042939153}
+  - {fileID: 2028064569042939167}
   - {fileID: 2028064569042939152}
   viewIdField: 0
   InstantiationId: 0
@@ -958,6 +960,22 @@ MonoBehaviour:
   mBulletPrefab: {fileID: 1794198430189847228, guid: d8d3ec337bac0704cbfca3cb3fdcb904, type: 3}
   mBulletSpeed: 10
   RoundsPerSecond: 0a0000000800000002000000
+--- !u!114 &-5910561900794309330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028064569042939156}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters: []
+  m_SynchronizeLayers: []
 --- !u!1 &2225438476787432580
 GameObject:
   m_ObjectHideFlags: 0

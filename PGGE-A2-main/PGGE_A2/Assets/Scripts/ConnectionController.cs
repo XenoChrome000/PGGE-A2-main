@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.SceneManagement;
 
 namespace PGGE
 {
@@ -21,6 +22,9 @@ namespace PGGE
             public GameObject mConnectionProgress;
             public GameObject mBtnJoinRoom;
             public GameObject mInpPlayerName;
+
+            public AudioSource AudioPlayer;
+            public AudioClip[] clickSounds;
 
             bool isConnecting = false;
 
@@ -41,6 +45,7 @@ namespace PGGE
 
             public void Connect()
             {
+                AudioPlayer.PlayOneShot(AudioPlayer.clip);
                 mBtnJoinRoom.SetActive(false);
                 mInpPlayerName.SetActive(false);
                 mConnectionProgress.SetActive(true);
@@ -60,6 +65,13 @@ namespace PGGE
                     isConnecting = PhotonNetwork.ConnectUsingSettings();
                     PhotonNetwork.GameVersion = gameVersion;
                 }
+            }
+
+            public void OnClickReturnMenu()
+            {
+                //Debug.Log("Return to Menu");
+                AudioPlayer.PlayOneShot(AudioPlayer.clip);
+                SceneManager.LoadScene("Menu");
             }
             public override void OnConnectedToMaster()
             {

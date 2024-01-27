@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 */
 public class Menu : MonoBehaviour
 {
+    public AudioSource AudioPlayer;
+    public AudioClip[] clickSounds;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,12 +26,14 @@ public class Menu : MonoBehaviour
     public void OnClickSinglePlayer()
     {
         //Debug.Log("Loading singleplayer game");
+        AudioPlayer.PlayOneShot(AudioPlayer.clip);
         SceneManager.LoadScene("SinglePlayer");
     }
 
     public void OnClickMultiPlayer()
     {
         //Debug.Log("Loading multiplayer game");
+        AudioPlayer.PlayOneShot(AudioPlayer.clip);
         SceneManager.LoadScene("Multiplayer_Launcher");
     }
 

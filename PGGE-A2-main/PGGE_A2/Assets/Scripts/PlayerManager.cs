@@ -10,8 +10,10 @@ using UnityEngine.SceneManagement;
 */
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
+
     public string mPlayerPrefabName;
     public PlayerSpawnPoints mSpawnPoints;
+    bool mFiring;
 
     [HideInInspector]
     public GameObject mPlayerGameObject;

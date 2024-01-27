@@ -7,7 +7,7 @@ using Photon.Pun;
 /*
     Player_Multiplayer - Handles the actions of the player, like shooting and reloading, but in multiplayer.
 */
-public class Player_Multiplayer : MonoBehaviour
+public class Player_Multiplayer : MonoBehaviourPunCallbacks, IPunObservable
 {
     private PhotonView mPhotonView;
 
@@ -70,6 +70,27 @@ public class Player_Multiplayer : MonoBehaviour
         // Implement the logic of button clicks for shooting. 
         //-----------------------------------------------------------------//
     }
+
+    #region IPunObservable implementation
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            // We own this player: send the others our data
+
+            Debug.Log(mAttackButtons + "send");
+            stream.SendNext(mAttackButtons);
+        }
+        else
+        {
+            // Network player, receive data
+            Debug.Log(mAttackButtons + "recieve");
+            this.mAttackButtons = (bool[])stream.ReceiveNext();
+        }
+    }
+
+    #endregion
 
     public void Aim()
     {
